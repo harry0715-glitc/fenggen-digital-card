@@ -3,6 +3,16 @@
   "altText": "楓根室內裝修設計有限公司｜數位名片",
   "contents": {
     "type": "bubble",
+    "size": "giga",
+    "styles": {
+      "body": {
+        "backgroundColor": "#151313"
+      },
+      "footer": {
+        "backgroundColor": "#151313",
+        "separator": false
+      }
+    },
     "hero": {
       "type": "image",
       "url": "https://harry0715-glitc.github.io/fenggen-digital-card/assets/portrait.jpg",
@@ -18,22 +28,33 @@
       "type": "box",
       "layout": "vertical",
       "spacing": "md",
-      "backgroundColor": "#151313",
+      "paddingAll": "20px",
       "contents": [
         {
           "type": "text",
           "text": "楓根室內裝修設計有限公司",
           "weight": "bold",
-          "size": "lg",
+          "size": "xl",
           "color": "#F0DFB2",
           "wrap": true
         },
         {
           "type": "text",
-          "text": "執行長 林宗翰",
-          "size": "md",
+          "text": "企劃・設計・施工",
+          "size": "xs",
           "color": "#D4B071",
-          "wrap": true
+          "weight": "bold",
+          "letterSpacing": "0.12em",
+          "margin": "sm"
+        },
+        {
+          "type": "text",
+          "text": "執行長 林宗翰",
+          "size": "lg",
+          "color": "#E8D2A2",
+          "weight": "bold",
+          "wrap": true,
+          "margin": "sm"
         },
         {
           "type": "separator",
@@ -68,6 +89,14 @@
               "wrap": true
             }
           ]
+        },
+        {
+          "type": "image",
+          "url": "https://harry0715-glitc.github.io/fenggen-digital-card/assets/logo-black-gold.png",
+          "size": "full",
+          "aspectMode": "fit",
+          "aspectRatio": "4:1",
+          "margin": "lg"
         }
       ]
     },
@@ -75,11 +104,15 @@
       "type": "box",
       "layout": "vertical",
       "spacing": "sm",
-      "backgroundColor": "#151313",
+      "paddingTop": "0px",
+      "paddingBottom": "20px",
+      "paddingStart": "20px",
+      "paddingEnd": "20px",
       "contents": [
         {
           "type": "button",
           "style": "primary",
+          "height": "sm",
           "color": "#D4B071",
           "action": {
             "type": "uri",
@@ -89,7 +122,9 @@
         },
         {
           "type": "button",
-          "style": "link",
+          "style": "secondary",
+          "height": "sm",
+          "color": "#8F6A35",
           "action": {
             "type": "uri",
             "label": "查看完整名片",
