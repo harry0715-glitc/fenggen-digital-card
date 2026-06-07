@@ -438,7 +438,8 @@
       lineUrl: "https://line.me/ti/p/k7EfqeX8x3",
       websiteUrl: "http://www.fenggen.com.tw/",
       shareTargetUrl: window.location.href,
-      shareMessageUrl: new URL('line-flex-message.json', window.location.href).toString()
+      shareMessageUrl: new URL('line-flex-message.json', window.location.href).toString(),
+      shareDebugMode: true
     };
 
     (async function initCard() {
@@ -481,6 +482,15 @@
         const payload = await response.json();
         const messages = normalizeShareMessages(payload);
         if (!messages.length) throw new Error('分享訊息是空的');
+        if (cfg.shareDebugMode) {
+          return [
+            {
+              type: 'text',
+              text: '【分享測試】如果你看到這行，代表 shareTargetPicker 已成功送出；若沒看到下方名片，問題在 Flex payload。'
+            },
+            ...messages
+          ];
+        }
         return messages;
       }
 
