@@ -478,6 +478,11 @@
           : JSON.stringify(data, null, 2);
       }
 
+      function hasChatMessageWriteScope() {
+        const scopes = (typeof liff.getContext === 'function' ? liff.getContext()?.scope : null) || [];
+        return Array.isArray(scopes) && scopes.includes('chat_message.write');
+      }
+
       function normalizeShareMessages(payload) {
         if (Array.isArray(payload)) return payload;
         if (payload && Array.isArray(payload.messages)) return payload.messages;
@@ -552,6 +557,10 @@
           language: typeof liff.getLanguage === 'function' ? liff.getLanguage() : null,
           context: typeof liff.getContext === 'function' ? liff.getContext() : null
         });
+
+        if (!hasChatMessageWriteScope()) {
+          setShareDebug('目前 LIFF scope 缺少 chat_message.write，請先到 LINE Developers Console 啟用後再重新授權測試。');
+        }
 
         if (!liff.isInClient()) {
           setShareState({
