@@ -417,6 +417,7 @@
 
           <div class="share-row">
             <button class="btn btn-share" id="share-card-btn" type="button">分享名片到 LINE</button>
+            <div id="share-debug-text" style="display:none;margin-top:6px;font-size:11px;line-height:1.35;color:rgba(240,223,178,0.72);text-align:center;"></div>
           </div>
         </div>
 
@@ -445,14 +446,42 @@
       const lineLink = document.getElementById('line-link');
       const websiteLink = document.getElementById('website-link');
       const shareBtn = document.getElementById('share-card-btn');
+      const shareDebugText = document.getElementById('share-debug-text');
 
       if (cfg.lineUrl) lineLink.href = cfg.lineUrl;
       if (cfg.websiteUrl) websiteLink.href = cfg.websiteUrl;
 
-      async function loadShareMessage() {
+      function setShareDebug(message = '') {
+        if (!shareDebugText) return;
+        const text = String(message || '').trim();
+        shareDebugText.textContent = text;
+        shareDebugText.style.display = text ? 'block' : 'none';
+      }
+
+      function normalizeShareMessages(payload) {
+        if (Array.isArray(payload)) return payload;
+        if (payload && Array.isArray(payload.messages)) return payload.messages;
+        if (payload && typeof payload === 'object') return [payload];
+        throw new Error('分享訊息格式不正確');
+      }
+
+      function summarizeShareError(error) {
+        const rawMessage = error?.message || error?.reason || '';
+        const code = error?.code || error?.name || 'UNKNOWN';
+        const shortMessage = String(rawMessage)
+          .replace(/^.*?:\s*/, '')
+          .replace(/\s+/g, ' ')
+          .trim();
+        return shortMessage ? `${code}: ${shortMessage}` : code;
+      }
+
+      async function loadShareMessages() {
         const response = await fetch(cfg.shareMessageUrl, { cache: 'no-store' });
-        if (!response.ok) throw new Error('Flex message JSON 載入失敗');
-        return response.json();
+        if (!response.ok) throw new Error(`Flex message JSON 載入失敗（HTTP ${response.status}）`);
+        const payload = await response.json();
+        const messages = normalizeShareMessages(payload);
+        if (!messages.length) throw new Error('分享訊息是空的');
+        return messages;
       }
 
       function setShareState({ disabled, label }) {
@@ -460,6 +489,7 @@
         if (label) shareBtn.textContent = label;
       }
 
+      setShareDebug('');
       setShareState({
         disabled: true,
         label: '請在 LINE 內開啟以分享名片'
@@ -484,6 +514,15 @@
           return;
         }
 
+        if (typeof liff.isApiAvailable === 'function' && !liff.isApiAvailable('shareTargetPicker')) {
+          setShareState({
+            disabled: true,
+            label: '此 LINE 環境不支援分享'
+          });
+          setShareDebug('請更新 LINE App 後再試。');
+          return;
+        }
+
         if (typeof liff.shareTargetPicker !== 'function') {
           setShareState({
             disabled: true,
@@ -499,31 +538,37 @@
 
         shareBtn.addEventListener('click', async () => {
           try {
+            setShareDebug('');
             setShareState({
               disabled: true,
               label: '準備分享中…'
             });
 
-            const flexMessage = await loadShareMessage();
-            const result = await liff.shareTargetPicker([flexMessage]);
+            const messages = await loadShareMessages();
+            console.log('LIFF share payload:', messages);
+            const result = await liff.shareTargetPicker(messages, { isMultiple: true });
 
-            if (result) {
+            if (result && result.status === 'success') {
               setShareState({
                 disabled: false,
                 label: '再次分享名片'
               });
+              setShareDebug('已送出分享。');
             } else {
               setShareState({
                 disabled: false,
                 label: '分享名片到 LINE'
               });
+              setShareDebug('你已取消分享。');
             }
           } catch (error) {
             console.error('LIFF share failed:', error);
+            const summary = summarizeShareError(error);
             setShareState({
               disabled: false,
               label: '分享失敗，點此重試'
             });
+            setShareDebug(`錯誤：${summary}`);
           }
         });
       } catch (error) {
@@ -532,6 +577,7 @@
           disabled: true,
           label: 'LIFF 初始化失敗，暫時無法分享'
         });
+        setShareDebug(`初始化錯誤：${summarizeShareError(error)}`);
       }
     })();
   </script>
