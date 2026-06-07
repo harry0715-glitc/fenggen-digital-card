@@ -147,7 +147,7 @@
         {
           "type": "text",
           "text": "查看完整名片",
-          "size": "xs",
+          "size": "sm",
           "color": "#5A78C9",
           "align": "center",
           "margin": "sm",
