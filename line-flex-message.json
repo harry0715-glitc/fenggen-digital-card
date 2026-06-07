@@ -79,37 +79,70 @@
       "backgroundColor": "#151313",
       "contents": [
         {
-          "type": "button",
-          "style": "primary",
-          "height": "sm",
-          "color": "#D4B071",
+          "type": "box",
+          "layout": "vertical",
+          "paddingAll": "10px",
+          "cornerRadius": "12px",
+          "backgroundColor": "#D4B071",
           "action": {
             "type": "uri",
             "label": "加 LINE 聯繫",
             "uri": "https://line.me/ti/p/k7EfqeX8x3"
-          }
+          },
+          "contents": [
+            {
+              "type": "text",
+              "text": "加 LINE 聯繫",
+              "align": "center",
+              "size": "md",
+              "weight": "bold",
+              "color": "#161210"
+            }
+          ]
         },
         {
-          "type": "button",
-          "style": "primary",
-          "height": "sm",
-          "color": "#D4B071",
+          "type": "box",
+          "layout": "vertical",
+          "paddingAll": "10px",
+          "cornerRadius": "12px",
+          "backgroundColor": "#D4B071",
           "action": {
             "type": "uri",
             "label": "官方網站",
             "uri": "https://www.fenggen.com.tw/"
-          }
+          },
+          "contents": [
+            {
+              "type": "text",
+              "text": "官方網站",
+              "align": "center",
+              "size": "md",
+              "weight": "bold",
+              "color": "#161210"
+            }
+          ]
         },
         {
-          "type": "button",
-          "style": "primary",
-          "height": "sm",
-          "color": "#D4B071",
+          "type": "box",
+          "layout": "vertical",
+          "paddingAll": "10px",
+          "cornerRadius": "12px",
+          "backgroundColor": "#D4B071",
           "action": {
             "type": "uri",
             "label": "分享好友",
             "uri": "https://liff.line.me/2010316548-ci9nYsou?share=1"
-          }
+          },
+          "contents": [
+            {
+              "type": "text",
+              "text": "分享好友",
+              "align": "center",
+              "size": "md",
+              "weight": "bold",
+              "color": "#161210"
+            }
+          ]
         },
         {
           "type": "text",

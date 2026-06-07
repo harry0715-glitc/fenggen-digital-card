@@ -9,6 +9,33 @@
   <meta property="og:description" content="黑金風格數位名片，可在 GitHub Pages 開啟，並支援後續 LIFF 整合。" />
   <meta property="og:type" content="website" />
   <style>
+    @font-face {
+      font-family: "LINE Seed TW";
+      src: url("assets/fonts/LINESeedTW_Rg.woff2") format("woff2"),
+           url("assets/fonts/LINESeedTW_TTF_Rg.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "LINE Seed TW";
+      src: url("assets/fonts/LINESeedTW_Bd.woff2") format("woff2"),
+           url("assets/fonts/LINESeedTW_TTF_Bd.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: "LINE Seed TW";
+      src: url("assets/fonts/LINESeedTW_Eb.woff2") format("woff2"),
+           url("assets/fonts/LINESeedTW_TTF_Eb.ttf") format("truetype");
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
     :root {
       --bg-1: #0c0c0d;
       --bg-2: #171414;
@@ -19,6 +46,7 @@
       --shadow: 0 28px 80px rgba(0, 0, 0, 0.46);
       --portrait-scale: 1.12;
       --portrait-y: -6px;
+      --font-ui: "LINE Seed TW", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
     }
 
     * { box-sizing: border-box; }
@@ -27,7 +55,7 @@
       margin: 0;
       height: 100%;
       overflow: hidden;
-      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      font-family: var(--font-ui);
       background:
         radial-gradient(circle at top, rgba(212,176,113,0.12), transparent 26%),
         radial-gradient(circle at bottom, rgba(212,176,113,0.08), transparent 28%),
@@ -229,6 +257,7 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
+      font-family: var(--font-ui);
       font-size: 12px;
       font-weight: 900;
       letter-spacing: 0.08em;
