@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>楓根室內裝修設計有限公司｜LIFF 數位名片</title>
+  <meta name="description" content="楓根室內裝修設計有限公司數位名片，可部署於 GitHub Pages，並可作為 LINE LIFF 頁面入口。" />
+  <meta property="og:title" content="楓根室內裝修設計有限公司｜數位名片" />
+  <meta property="og:description" content="黑金風格數位名片，可在 GitHub Pages 開啟，並支援後續 LIFF 整合。" />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --bg-1: #0c0c0d;
+      --bg-2: #171414;
+      --panel: #141314;
+      --panel-2: #201b19;
+      --gold: #d4b071;
+      --gold-soft: #f0dfb2;
+      --gold-deep: #8f6a35;
+      --ink: #f6ecd8;
+      --ink-soft: rgba(246, 236, 216, 0.72);
+      --line: rgba(212, 176, 113, 0.22);
+      --shadow: 0 22px 60px rgba(0, 0, 0, 0.38);
+      --accent: #b88d4a;
+      --accent-deep: #8c6328;
+      --portrait-scale: 1.08;
+      --portrait-y: 4px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(212,176,113,0.12), transparent 26%),
+        radial-gradient(circle at bottom, rgba(212,176,113,0.08), transparent 28%),
+        linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+      color: var(--ink);
+    }
+
+    body { padding: 14px; }
+
+    .viewport {
+      width: min(1180px, 100%);
+      height: calc(100vh - 28px);
+      margin: 0 auto;
+      border-radius: 32px;
+      background:
+        linear-gradient(180deg, rgba(34,29,26,0.88), rgba(16,14,14,0.96));
+      border: 1px solid rgba(212,176,113,0.16);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 12px;
+      padding: 18px 18px 14px;
+    }
+
+    .viewport::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(212,176,113,0.06), transparent 18%, transparent 82%, rgba(212,176,113,0.06)),
+        repeating-linear-gradient(0deg, rgba(212,176,113,0.02) 0 1px, transparent 1px 34px),
+        repeating-linear-gradient(90deg, rgba(212,176,113,0.02) 0 1px, transparent 1px 34px);
+      pointer-events: none;
+    }
+
+    .viewport > * { position: relative; z-index: 1; }
+
+    .header {
+      display: grid;
+      gap: 4px;
+    }
+
+    .header .kicker {
+      font-size: 12px;
+      letter-spacing: 0.26em;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      line-height: 1.12;
+      color: var(--gold-soft);
+    }
+
+    .header .sub {
+      font-size: 12px;
+      color: rgba(240,223,178,0.62);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .service-row {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      width: fit-content;
+      max-width: 100%;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(212,176,113,0.14);
+      color: var(--gold-soft);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+    }
+
+    .service-row .dot { color: var(--gold); }
+
+    .stage {
+      min-height: 0;
+      display: grid;
+      place-items: center;
+    }
+
+    .mobile-card {
+      width: min(100%, 376px);
+      max-height: 100%;
+      border-radius: 30px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(35,30,28,0.98) 0%, rgba(18,17,17,0.98) 100%);
+      border: 1px solid rgba(212,176,113,0.2);
+      box-shadow: 0 18px 42px rgba(0,0,0,0.32);
+      display: grid;
+      grid-template-rows: 164px auto auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(212,176,113,0.14);
+      background:
+        radial-gradient(circle at 50% 0%, rgba(212,176,113,0.18), transparent 58%),
+        linear-gradient(180deg, #1b1919 0%, #0f0f10 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 16px 16px 0;
+      border-radius: 24px 24px 0 0;
+      border: 1px solid rgba(212,176,113,0.08);
+      border-bottom: 0;
+      pointer-events: none;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center top;
+      transform: translateY(var(--portrait-y)) scale(var(--portrait-scale));
+      transform-origin: center top;
+      filter: contrast(1.03) saturate(0.92) brightness(0.98);
+    }
+
+    .hero-copy {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 14px;
+      z-index: 1;
+      color: var(--ink);
+      text-shadow: 0 10px 24px rgba(0,0,0,0.36);
+    }
+
+    .hero-copy .role {
+      font-size: 12px;
+      margin-bottom: 4px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: rgba(240,223,178,0.84);
+      text-transform: uppercase;
+    }
+
+    .hero-copy .name {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      color: var(--gold-soft);
+    }
+
+    .hero-copy .enname {
+      margin-top: 3px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      color: rgba(246,236,216,0.74);
+      text-transform: uppercase;
+    }
+
+    .card-body {
+      padding: 11px 16px 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .logo-row {
+      display: grid;
+      place-items: center;
+      padding-bottom: 4px;
+    }
+
+    .logo-wrap {
+      width: min(100%, 196px);
+      min-height: 38px;
+      display: grid;
+      place-items: center;
+    }
+
+    .logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: brightness(1.12) sepia(0.42) saturate(1.18) hue-rotate(355deg) contrast(1.04) drop-shadow(0 0 10px rgba(212,176,113,0.16));
+    }
+
+    .info-list {
+      display: grid;
+      gap: 5px;
+    }
+
+    .info-item {
+      display: grid;
+      grid-template-columns: 10px 1fr;
+      gap: 9px;
+      align-items: start;
+      font-size: 11px;
+      line-height: 1.34;
+      color: var(--ink-soft);
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(212,176,113,0.08);
+    }
+
+    .info-item:last-child { border-bottom: 0; }
+
+    .pill {
+      width: 10px;
+      height: 20px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #e0c184 0%, #9e7337 100%);
+      box-shadow: 0 0 12px rgba(212,176,113,0.18);
+      margin-top: 1px;
+    }
+
+    .action-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+      margin-top: 1px;
+    }
+
+    .btn {
+      min-height: 39px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(180deg, #d7b26f 0%, #9d7338 100%);
+      color: #171412;
+      box-shadow: 0 10px 22px rgba(212,176,113,0.22);
+      border: 0;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.02);
+      color: var(--gold-soft);
+      border: 1px solid rgba(212,176,113,0.26);
+      box-shadow: inset 0 0 0 1px rgba(212,176,113,0.04);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-top: 1px solid rgba(212,176,113,0.12);
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 10px;
+      color: rgba(246,236,216,0.58);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .qr-mini {
+      width: 23px;
+      height: 23px;
+      border-radius: 8px;
+      background: #fff8e9;
+      border: 1px solid rgba(212,176,113,0.18);
+      position: relative;
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    .qr-mini::before {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      background:
+        linear-gradient(90deg, #171412 0 20%, transparent 20% 30%, #171412 30% 50%, transparent 50% 60%, #171412 60% 82%, transparent 82% 100%),
+        linear-gradient(180deg, #171412 0 18%, transparent 18% 34%, #171412 34% 52%, transparent 52% 66%, #171412 66% 86%, transparent 86% 100%);
+    }
+
+    .share-mark {
+      width: 27px;
+      height: 27px;
+      border-radius: 999px;
+      border: 1px solid rgba(212,176,113,0.16);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 14px;
+      flex: 0 0 auto;
+    }
+
+    .bottom-note {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding-inline: 6px;
+      font-size: 11px;
+      color: rgba(246,236,216,0.5);
+    }
+
+    @media (max-width: 560px) {
+      body { padding: 10px; }
+      .viewport {
+        height: auto;
+        min-height: calc(100vh - 20px);
+        overflow: auto;
+        padding: 14px;
+      }
+      html, body { overflow: auto; }
+      .header h1 { font-size: 21px; }
+      .mobile-card { width: 100%; }
+      .action-row { grid-template-columns: 1fr; }
+      .bottom-note {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn { transition: none; }
+      .btn:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="viewport">
+    <section class="header">
+      <div class="kicker">LIFF Ready / GitHub Pages</div>
+      <h1>楓根室內裝修設計有限公司</h1>
+      <div class="sub">Black &amp; Gold / Portrait / Contact Card</div>
+    </section>
+
+    <section class="service-row" aria-label="服務項目">
+      <span>企劃</span>
+      <span class="dot">●</span>
+      <span>設計</span>
+      <span class="dot">●</span>
+      <span>施工</span>
+    </section>
+
+    <section class="stage">
+      <article class="mobile-card" aria-label="數位名片主卡">
+        <div class="hero">
+          <img src="assets/portrait.jpg" alt="林宗翰形象照" />
+          <div class="hero-copy">
+            <div class="role">Chief Executive Officer</div>
+            <h2 class="name">林宗翰</h2>
+            <div class="enname">Lin Tsung Han</div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="logo-row">
+            <div class="logo-wrap">
+              <img src="assets/logo-transparent.png" alt="FENGGEN Logo" />
+            </div>
+          </div>
+
+          <div class="info-list">
+            <div class="info-item"><div class="pill"></div><div>高雄市楠梓區清成街 31 號</div></div>
+            <div class="info-item"><div class="pill"></div><div>fenggen.iris@msa.hinet.net</div></div>
+            <div class="info-item"><div class="pill"></div><div>07-3553026 #18 ／ 0963-620715</div></div>
+          </div>
+
+          <div class="action-row">
+            <a class="btn btn-primary" id="line-link" href="https://line.me/R/ti/p/@your-line-id" target="_blank" rel="noreferrer">加 LINE 聯繫</a>
+            <a class="btn btn-secondary" id="website-link" href="https://www.fenggen.com.tw" target="_blank" rel="noreferrer">官方網站</a>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="footer-left">
+            <div class="qr-mini"></div>
+            <span id="status-text">可接 GitHub Pages 與 LIFF</span>
+          </div>
+          <div class="share-mark">↗</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="bottom-note">
+      <span>照片已改為可縮放顯示，Logo 改用透明 PNG。</span>
+      <span>此頁可直接部署 GitHub Pages，之後再把網址填入 LIFF Endpoint URL。</span>
+    </section>
+  </main>
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script>
+    window.CARD_CONFIG = {
+      liffId: "",
+      lineUrl: "https://line.me/R/ti/p/@your-line-id",
+      websiteUrl: "https://www.fenggen.com.tw",
+      shareTargetUrl: window.location.href
+    };
+
+    (async function initCard() {
+      const cfg = window.CARD_CONFIG;
+      const lineLink = document.getElementById('line-link');
+      const websiteLink = document.getElementById('website-link');
+      const statusText = document.getElementById('status-text');
+
+      if (cfg.lineUrl) lineLink.href = cfg.lineUrl;
+      if (cfg.websiteUrl) websiteLink.href = cfg.websiteUrl;
+
+      if (!cfg.liffId) {
+        statusText.textContent = 'GitHub Pages 已就緒，待填入 LIFF ID';
+        return;
+      }
+
+      try {
+        await liff.init({ liffId: cfg.liffId });
+        statusText.textContent = liff.isInClient()
+          ? '目前於 LINE 內開啟，可作為 LIFF 頁使用'
+          : 'LIFF 已初始化，可直接填入 LINE Developers';
+      } catch (error) {
+        console.error('LIFF init failed:', error);
+        statusText.textContent = 'LIFF 初始化失敗，請確認 LIFF ID 與 Endpoint URL';
+      }
+    })();
+  </script>
+</body>
+</html>
