@@ -16,7 +16,7 @@
     },
     "hero": {
       "type": "image",
-      "url": "https://example.com/portrait.jpg",
+      "url": "https://harry0715-glitc.github.io/fenggen-digital-card/assets/portrait.jpg",
       "size": "full",
       "aspectRatio": "4:3",
       "aspectMode": "cover",
@@ -24,7 +24,7 @@
       "action": {
         "type": "uri",
         "label": "查看名片頁",
-        "uri": "https://example.com/digital-card"
+        "uri": "https://harry0715-glitc.github.io/fenggen-digital-card/"
       }
     },
     "body": {
@@ -62,7 +62,7 @@
         },
         {
           "type": "image",
-          "url": "https://example.com/logo-black-gold.png",
+          "url": "https://harry0715-glitc.github.io/fenggen-digital-card/assets/logo-black-gold.png",
           "size": "full",
           "aspectMode": "fit",
           "aspectRatio": "4:1",
@@ -173,7 +173,7 @@
           "action": {
             "type": "uri",
             "label": "查看完整名片",
-            "uri": "https://example.com/digital-card"
+            "uri": "https://harry0715-glitc.github.io/fenggen-digital-card/"
           }
         },
         {
