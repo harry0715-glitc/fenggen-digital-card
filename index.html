@@ -376,23 +376,44 @@
 
     .resume-block {
       display: grid;
-      gap: 5px;
+      gap: 8px;
       margin-top: 2px;
       padding-top: 6px;
       border-top: 1px solid rgba(212,176,113,0.08);
     }
 
+    .resume-group {
+      display: grid;
+      gap: 4px;
+    }
+
     .resume-title {
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 0.08em;
       color: var(--gold);
     }
 
+    .resume-list {
+      display: grid;
+      gap: 3px;
+    }
+
     .resume-item {
-      font-size: 13px;
-      line-height: 1.45;
+      font-size: 12px;
+      line-height: 1.42;
       color: var(--ink-soft);
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .resume-item::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: rgba(212,176,113,0.9);
+      font-weight: 900;
     }
 
     .card-footer {
@@ -482,8 +503,23 @@
           </div>
 
           <div class="resume-block" aria-label="學經歷">
-            <div class="resume-title">現任</div>
-            <div class="resume-item">高雄市空間藝術學會理事長</div>
+            <div class="resume-group">
+              <div class="resume-title">學歷</div>
+              <div class="resume-list">
+                <div class="resume-item">樹德科技大學 建築與室內設計研究所</div>
+                <div class="resume-item">建築物室內設計乙級技術士</div>
+                <div class="resume-item">營造業（甲種）勞工安全衛生業務主管</div>
+                <div class="resume-item">公共工程品質管理人員</div>
+              </div>
+            </div>
+
+            <div class="resume-group">
+              <div class="resume-title">經歷</div>
+              <div class="resume-list">
+                <div class="resume-item">現任 高雄市空間藝術學會 理事長</div>
+                <div class="resume-item">高雄市室內設計裝修商業同業公會 理事</div>
+              </div>
+            </div>
           </div>
 
           <div class="action-row">
