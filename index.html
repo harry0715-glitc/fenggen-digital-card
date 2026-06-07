@@ -212,18 +212,7 @@
 
     .share-row {
       display: grid;
-      gap: 6px;
       margin-top: 6px;
-    }
-
-    .share-hint {
-      margin: 0;
-      font-size: 11px;
-      line-height: 1.45;
-      color: rgba(246,236,216,0.58);
-      text-align: center;
-      letter-spacing: 0.04em;
-      min-height: 16px;
     }
 
     .btn {
@@ -430,7 +419,6 @@
 
           <div class="share-row">
             <button class="btn btn-share" id="share-card-btn" type="button">分享名片到 LINE</button>
-            <p class="share-hint" id="share-hint">請在 LINE 內開啟後，即可直接分享這張名片卡。</p>
           </div>
         </div>
 
@@ -459,7 +447,6 @@
       const lineLink = document.getElementById('line-link');
       const websiteLink = document.getElementById('website-link');
       const shareBtn = document.getElementById('share-card-btn');
-      const shareHint = document.getElementById('share-hint');
 
       if (cfg.lineUrl) lineLink.href = cfg.lineUrl;
       if (cfg.websiteUrl) websiteLink.href = cfg.websiteUrl;
@@ -470,22 +457,20 @@
         return response.json();
       }
 
-      function setShareState({ disabled, label, hint }) {
+      function setShareState({ disabled, label }) {
         shareBtn.disabled = disabled;
         if (label) shareBtn.textContent = label;
-        if (hint) shareHint.textContent = hint;
       }
 
       setShareState({
         disabled: true,
-        label: '分享名片到 LINE',
-        hint: '請在 LINE 內開啟後，即可直接分享這張名片卡。'
+        label: '請在 LINE 內開啟以分享名片'
       });
 
       if (!cfg.liffId) {
         setShareState({
           disabled: true,
-          hint: '尚未設定 LIFF ID，暫時無法使用 LINE 內分享。'
+          label: '尚未設定 LIFF，暫時無法分享'
         });
         return;
       }
@@ -496,7 +481,7 @@
         if (!liff.isInClient()) {
           setShareState({
             disabled: true,
-            hint: '目前不是在 LINE 內開啟；請改用 LINE 開啟此名片後再分享。'
+            label: '請在 LINE 內開啟以分享名片'
           });
           return;
         }
@@ -504,23 +489,21 @@
         if (typeof liff.shareTargetPicker !== 'function') {
           setShareState({
             disabled: true,
-            hint: '目前 LINE 版本不支援分享名片功能。'
+            label: '目前 LINE 版本不支援分享'
           });
           return;
         }
 
         setShareState({
           disabled: false,
-          label: '分享名片到 LINE',
-          hint: '可直接選擇朋友或群組，送出名片卡片。'
+          label: '分享名片到 LINE'
         });
 
         shareBtn.addEventListener('click', async () => {
           try {
             setShareState({
               disabled: true,
-              label: '準備分享中…',
-              hint: '正在建立要分享的名片卡片。'
+              label: '準備分享中…'
             });
 
             const flexMessage = await loadShareMessage();
@@ -529,22 +512,19 @@
             if (result) {
               setShareState({
                 disabled: false,
-                label: '再次分享名片',
-                hint: '已開啟分享流程；你可以再分享一次給其他人。'
+                label: '再次分享名片'
               });
             } else {
               setShareState({
                 disabled: false,
-                label: '分享名片到 LINE',
-                hint: '你已取消分享；可再次點擊重新選擇對象。'
+                label: '分享名片到 LINE'
               });
             }
           } catch (error) {
             console.error('LIFF share failed:', error);
             setShareState({
               disabled: false,
-              label: '重新分享名片',
-              hint: '分享失敗，請稍後再試，或確認目前是從 LINE 內開啟。'
+              label: '分享失敗，點此重試'
             });
           }
         });
@@ -552,7 +532,7 @@
         console.error('LIFF init failed:', error);
         setShareState({
           disabled: true,
-          hint: 'LIFF 初始化失敗，暫時無法使用分享功能。'
+          label: 'LIFF 初始化失敗，暫時無法分享'
         });
       }
     })();
