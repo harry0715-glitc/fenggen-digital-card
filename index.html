@@ -79,7 +79,7 @@
       position: relative;
       overflow: hidden;
       display: grid;
-      grid-template-rows: auto auto 1fr;
+      grid-template-rows: auto 1fr;
       gap: 14px;
       padding: 22px 20px 26px;
     }
@@ -99,39 +99,17 @@
 
     .header {
       display: grid;
-      gap: 0;
       justify-items: center;
       text-align: center;
+      padding-top: 2px;
     }
 
-    .header h1 {
-      margin: 0;
-      font-size: 24px;
-      font-weight: 900;
-      letter-spacing: 0.08em;
-      line-height: 1.14;
-      color: var(--gold-soft);
+    .header-logo {
+      display: block;
+      width: min(100%, 330px);
+      height: auto;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,0.30));
     }
-
-    .service-row {
-      display: inline-flex;
-      align-items: center;
-      justify-self: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      width: fit-content;
-      max-width: 100%;
-      padding: 7px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(212,176,113,0.14);
-      color: var(--gold-soft);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-    }
-
-    .service-row .dot { color: var(--gold); }
 
     .stage {
       min-height: 0;
@@ -515,12 +493,7 @@
         padding: 18px 10px 20px;
       }
       html, body { overflow-x: hidden; overflow-y: auto; }
-      .header h1 { font-size: 22px; }
-      .service-row {
-        font-size: 12px;
-        gap: 8px;
-        padding: 8px 12px;
-      }
+      .header-logo { width: min(100%, 300px); }
       .mobile-card,
       .share-hero { width: min(100%, 360px); }
       .hero {
@@ -542,15 +515,7 @@
 <body>
   <main class="viewport">
     <section class="header">
-      <h1>楓根室內裝修設計有限公司</h1>
-    </section>
-
-    <section class="service-row" aria-label="服務項目">
-      <span>企劃</span>
-      <span class="dot">●</span>
-      <span>設計</span>
-      <span class="dot">●</span>
-      <span>施工</span>
+      <img class="header-logo" src="assets/logo-header.jpg" alt="楓根室內設計 Fenggen Interior design" />
     </section>
 
     <section class="share-hero" id="share-hero" aria-live="polite">
