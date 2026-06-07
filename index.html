@@ -104,11 +104,14 @@
       padding-top: 2px;
     }
 
-    .header-logo {
-      display: block;
-      width: min(100%, 330px);
-      height: auto;
-      filter: drop-shadow(0 10px 24px rgba(0,0,0,0.30));
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      line-height: 1.16;
+      color: var(--gold-soft);
+      text-shadow: 0 10px 24px rgba(0,0,0,0.30);
     }
 
     .stage {
@@ -493,7 +496,7 @@
         padding: 18px 10px 20px;
       }
       html, body { overflow-x: hidden; overflow-y: auto; }
-      .header-logo { width: min(100%, 300px); }
+      .header h1 { font-size: 22px; }
       .mobile-card,
       .share-hero { width: min(100%, 360px); }
       .hero {
@@ -515,7 +518,7 @@
 <body>
   <main class="viewport">
     <section class="header">
-      <img class="header-logo" src="assets/logo-header.jpg" alt="楓根室內設計 Fenggen Interior design" />
+      <h1>楓根室內設計裝修有限公司</h1>
     </section>
 
     <section class="share-hero" id="share-hero" aria-live="polite">
