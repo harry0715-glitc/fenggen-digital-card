@@ -7,8 +7,8 @@
       "type": "image",
       "url": "https://harry0715-glitc.github.io/fenggen-digital-card/assets/portrait.jpg",
       "size": "full",
-      "aspectMode": "cover",
-      "aspectRatio": "20:13",
+      "aspectMode": "fit",
+      "aspectRatio": "1:1",
       "action": {
         "type": "uri",
         "uri": "https://liff.line.me/2010316548-ci9nYsou"
@@ -92,7 +92,16 @@
           "style": "link",
           "action": {
             "type": "uri",
-            "label": "查看完整名片",
+            "label": "官方網站",
+            "uri": "https://www.fenggen.com.tw/"
+          }
+        },
+        {
+          "type": "button",
+          "style": "link",
+          "action": {
+            "type": "uri",
+            "label": "打開名片並分享",
             "uri": "https://liff.line.me/2010316548-ci9nYsou"
           }
         }
