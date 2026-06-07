@@ -213,6 +213,12 @@
       margin-top: 0;
     }
 
+    .text-link-row {
+      display: grid;
+      justify-items: center;
+      margin-top: 6px;
+    }
+
     .btn {
       position: relative;
       overflow: hidden;
@@ -298,21 +304,21 @@
     }
 
     .btn-share {
-      background: linear-gradient(180deg, rgba(32,28,26,0.98) 0%, rgba(18,15,14,1) 100%);
-      color: #f0dfb2;
-      border: 1px solid rgba(212,176,113,0.34);
+      background: linear-gradient(180deg, #e2c487 0%, #c5964f 45%, #8e632e 100%);
+      color: #161210;
+      border: 1px solid rgba(244,223,178,0.34);
       box-shadow:
-        0 12px 24px rgba(0,0,0,0.22),
-        inset 0 1px 0 rgba(255,244,224,0.12),
-        inset 0 0 0 1px rgba(212,176,113,0.08);
+        0 12px 24px rgba(212,176,113,0.22),
+        inset 0 1px 0 rgba(255,248,228,0.42),
+        inset 0 -1px 0 rgba(87,58,21,0.34);
     }
 
     .btn-share:hover {
-      border-color: rgba(240,223,178,0.46);
+      border-color: rgba(244,223,178,0.40);
       box-shadow:
-        0 14px 28px rgba(0,0,0,0.26),
-        inset 0 1px 0 rgba(255,244,224,0.18),
-        inset 0 0 0 1px rgba(212,176,113,0.12);
+        0 14px 28px rgba(212,176,113,0.26),
+        inset 0 1px 0 rgba(255,248,228,0.48),
+        inset 0 -1px 0 rgba(87,58,21,0.38);
     }
 
     .btn-share[disabled] {
@@ -323,6 +329,41 @@
 
     .btn-share[disabled]:hover {
       transform: none;
+    }
+
+    .text-link {
+      color: #5a78c9;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      transition: opacity .18s ease, color .18s ease;
+    }
+
+    .text-link:hover {
+      color: #7f9cf0;
+      opacity: 0.96;
+    }
+
+    .resume-block {
+      display: grid;
+      gap: 5px;
+      margin-top: 2px;
+      padding-top: 6px;
+      border-top: 1px solid rgba(212,176,113,0.08);
+    }
+
+    .resume-title {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+    }
+
+    .resume-item {
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--ink-soft);
     }
 
     .card-footer {
@@ -370,6 +411,7 @@
       .action-row { grid-template-columns: 1fr 1fr; gap: 8px; }
       .btn { min-height: 38px; font-size: 11px; }
       .info-item { font-size: 15px; line-height: 1.45; }
+      .resume-item { font-size: 13px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -410,18 +452,27 @@
             <div class="info-item"><div class="pill"></div><div>07-3553026 #18 ／ 0963-620715</div></div>
           </div>
 
+          <div class="resume-block" aria-label="學經歷">
+            <div class="resume-title">現任</div>
+            <div class="resume-item">高雄市空間藝術學會理事長</div>
+          </div>
+
           <div class="action-row">
             <a class="btn btn-primary" id="line-link" href="https://line.me/ti/p/k7EfqeX8x3" target="_blank" rel="noreferrer">加 LINE 聯繫</a>
-            <a class="btn btn-secondary" id="website-link" href="http://www.fenggen.com.tw/" target="_blank" rel="noreferrer">官方網站</a>
+            <a class="btn btn-primary" id="website-link" href="http://www.fenggen.com.tw/" target="_blank" rel="noreferrer">官方網站</a>
           </div>
 
           <div class="share-row">
-            <button class="btn btn-share" id="share-card-btn" type="button">分享名片到 LINE</button>
+            <button class="btn btn-share" id="share-card-btn" type="button">分享好友</button>
             <div id="share-debug-text" style="display:none;margin-top:6px;font-size:11px;line-height:1.35;color:rgba(240,223,178,0.72);text-align:center;"></div>
             <details id="share-diagnostics" style="margin-top:6px;display:none;color:rgba(240,223,178,0.78);font-size:10px;line-height:1.4;">
               <summary style="cursor:pointer;user-select:none;">分享診斷資訊</summary>
               <pre id="share-diagnostics-pre" style="margin:6px 0 0;padding:8px;border-radius:10px;background:rgba(0,0,0,0.22);border:1px solid rgba(212,176,113,0.12);white-space:pre-wrap;word-break:break-word;font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;"></pre>
             </details>
+          </div>
+
+          <div class="text-link-row">
+            <a class="text-link" id="view-card-link" href="https://harry0715-glitc.github.io/fenggen-digital-card/" target="_blank" rel="noreferrer">查看完整名片</a>
           </div>
         </div>
 
@@ -451,12 +502,14 @@
       const lineLink = document.getElementById('line-link');
       const websiteLink = document.getElementById('website-link');
       const shareBtn = document.getElementById('share-card-btn');
+      const viewCardLink = document.getElementById('view-card-link');
       const shareDebugText = document.getElementById('share-debug-text');
       const shareDiagnostics = document.getElementById('share-diagnostics');
       const shareDiagnosticsPre = document.getElementById('share-diagnostics-pre');
 
       if (cfg.lineUrl) lineLink.href = cfg.lineUrl;
       if (cfg.websiteUrl) websiteLink.href = cfg.websiteUrl;
+      if (cfg.shareTargetUrl) viewCardLink.href = cfg.shareTargetUrl;
 
       function setShareDebug(message = '') {
         if (!shareDebugText) return;
@@ -532,7 +585,7 @@
       });
       setShareState({
         disabled: true,
-        label: '請在 LINE 內開啟以分享名片'
+        label: '請在 LINE 內開啟以分享好友'
       });
 
       if (!cfg.liffId) {
@@ -565,7 +618,7 @@
         if (!liff.isInClient()) {
           setShareState({
             disabled: true,
-            label: '請在 LINE 內開啟以分享名片'
+            label: '請在 LINE 內開啟以分享好友'
           });
           return;
         }
@@ -589,7 +642,7 @@
 
         setShareState({
           disabled: false,
-          label: '分享名片到 LINE'
+          label: '分享好友'
         });
 
         shareBtn.addEventListener('click', async () => {
@@ -597,7 +650,7 @@
             setShareDebug('');
             setShareState({
               disabled: true,
-              label: '準備分享中…'
+              label: '開啟好友選取中…'
             });
 
             const messages = await loadShareMessages();
@@ -630,13 +683,13 @@
             if (result && result.status === 'success') {
               setShareState({
                 disabled: false,
-                label: '再次分享名片'
+                label: '再次分享好友'
               });
               setShareDebug('已送出分享。');
             } else {
               setShareState({
                 disabled: false,
-                label: '分享名片到 LINE'
+                label: '分享好友'
               });
               setShareDebug('你已取消分享。');
             }
