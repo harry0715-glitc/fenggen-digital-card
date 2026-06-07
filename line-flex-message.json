@@ -33,6 +33,7 @@
           "text": "執行長 林宗翰",
           "size": "md",
           "color": "#D4B071",
+          "weight": "bold",
           "wrap": true
         },
         {
@@ -80,6 +81,7 @@
         {
           "type": "button",
           "style": "primary",
+          "height": "sm",
           "color": "#D4B071",
           "action": {
             "type": "uri",
@@ -89,7 +91,9 @@
         },
         {
           "type": "button",
-          "style": "link",
+          "style": "primary",
+          "height": "sm",
+          "color": "#D4B071",
           "action": {
             "type": "uri",
             "label": "官方網站",
@@ -98,10 +102,24 @@
         },
         {
           "type": "button",
-          "style": "link",
+          "style": "primary",
+          "height": "sm",
+          "color": "#D4B071",
           "action": {
             "type": "uri",
-            "label": "打開名片並分享",
+            "label": "分享好友",
+            "uri": "https://liff.line.me/2010316548-ci9nYsou?share=1"
+          }
+        },
+        {
+          "type": "text",
+          "text": "查看完整名片",
+          "size": "xs",
+          "color": "#5A78C9",
+          "align": "center",
+          "margin": "sm",
+          "action": {
+            "type": "uri",
             "uri": "https://liff.line.me/2010316548-ci9nYsou"
           }
         }
