@@ -77,11 +77,11 @@
       border: 1px solid rgba(212,176,113,0.18);
       box-shadow: var(--shadow);
       position: relative;
-      overflow: visible;
+      overflow: hidden;
       display: grid;
       grid-template-rows: auto auto 1fr;
-      gap: 10px;
-      padding: 18px 18px 22px;
+      gap: 14px;
+      padding: 22px 20px 26px;
     }
 
     .viewport::before {
@@ -106,10 +106,10 @@
 
     .header h1 {
       margin: 0;
-      font-size: 22px;
+      font-size: 24px;
       font-weight: 900;
-      letter-spacing: 0.07em;
-      line-height: 1.12;
+      letter-spacing: 0.08em;
+      line-height: 1.14;
       color: var(--gold-soft);
     }
 
@@ -118,17 +118,17 @@
       align-items: center;
       justify-self: center;
       flex-wrap: wrap;
-      gap: 6px;
+      gap: 8px;
       width: fit-content;
       max-width: 100%;
-      padding: 5px 10px;
+      padding: 7px 14px;
       border-radius: 999px;
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(212,176,113,0.14);
       color: var(--gold-soft);
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 800;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
     }
 
     .service-row .dot { color: var(--gold); }
@@ -140,7 +140,7 @@
     }
 
     .mobile-card {
-      width: min(100%, 320px);
+      width: min(100%, 360px);
       max-height: none;
       border-radius: 30px;
       overflow: hidden;
@@ -156,8 +156,8 @@
     }
 
     .hero {
-      margin: 6px auto 0;
-      width: calc(100% - 132px);
+      margin: 10px auto 0;
+      width: calc(100% - 112px);
       aspect-ratio: 1 / 1;
     }
 
@@ -176,54 +176,54 @@
 
     .hero-copy {
       display: grid;
-      gap: 2px;
+      gap: 4px;
       color: var(--ink);
     }
 
     .hero-copy .role {
-      font-size: 13px;
-      margin-bottom: 2px;
+      font-size: 14px;
+      margin-bottom: 3px;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: rgba(240,223,178,0.9);
     }
 
     .hero-copy .name {
       margin: 0;
-      font-size: 27px;
+      font-size: 31px;
       line-height: 1;
       font-weight: 900;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       color: var(--gold-soft);
     }
 
     .card-body {
-      padding: 6px 12px 1px;
+      padding: 12px 16px 14px;
       display: grid;
-      gap: 4px;
+      gap: 8px;
     }
 
     .info-list {
       display: grid;
-      gap: 2px;
+      gap: 4px;
     }
 
     .info-item {
       display: grid;
-      grid-template-columns: 10px 1fr;
-      gap: 8px;
+      grid-template-columns: 12px 1fr;
+      gap: 10px;
       align-items: start;
-      font-size: 12px;
-      line-height: 1.28;
+      font-size: 13px;
+      line-height: 1.42;
       color: var(--ink-soft);
-      padding: 3px 0;
+      padding: 5px 0;
       border-bottom: 1px solid rgba(212,176,113,0.08);
       text-shadow: 0 1px 0 rgba(0,0,0,0.18);
     }
 
     .pill {
-      width: 9px;
-      height: 18px;
+      width: 11px;
+      height: 20px;
       border-radius: 999px;
       background: linear-gradient(180deg, #e0c184 0%, #9e7337 100%);
       box-shadow: 0 0 12px rgba(212,176,113,0.18);
@@ -233,13 +233,14 @@
     .action-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px;
-      margin-top: 0;
+      gap: 8px;
+      margin-top: 4px;
     }
 
     .share-row {
       display: grid;
-      margin-top: 0;
+      margin-top: 2px;
+      gap: 8px;
     }
 
     .text-link-row {
@@ -252,16 +253,16 @@
       position: relative;
       overflow: hidden;
       isolation: isolate;
-      min-height: 28px;
-      border-radius: 14px;
+      min-height: 38px;
+      border-radius: 15px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
       font-family: var(--font-ui);
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 900;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
@@ -377,19 +378,19 @@
 
     .resume-block {
       display: grid;
-      gap: 6px;
-      margin-top: 1px;
-      padding-top: 5px;
+      gap: 10px;
+      margin-top: 6px;
+      padding-top: 10px;
       border-top: 1px solid rgba(212,176,113,0.08);
     }
 
     .resume-group {
       display: grid;
-      gap: 3px;
+      gap: 5px;
     }
 
     .resume-title {
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 900;
       letter-spacing: 0.08em;
       color: var(--gold);
@@ -397,15 +398,82 @@
 
     .resume-list {
       display: grid;
-      gap: 2px;
+      gap: 4px;
     }
 
     .resume-item {
-      font-size: 11px;
-      line-height: 1.34;
+      font-size: 12px;
+      line-height: 1.5;
       color: var(--ink-soft);
-      padding-left: 10px;
+      padding-left: 12px;
       position: relative;
+    }
+
+    .share-hero {
+      display: none;
+      width: min(100%, 360px);
+      margin: 0 auto;
+      padding: 26px 22px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(40,33,30,0.98) 0%, rgba(19,17,17,0.99) 100%);
+      border: 1px solid rgba(212,176,113,0.22);
+      box-shadow:
+        0 24px 60px rgba(0,0,0,0.40),
+        inset 0 1px 0 rgba(255,244,224,0.05),
+        inset 0 0 0 1px rgba(212,176,113,0.05);
+      text-align: center;
+      gap: 12px;
+    }
+
+    .share-hero.active {
+      display: grid;
+    }
+
+    .share-badge {
+      justify-self: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, #e2c487 0%, #c5964f 45%, #8e632e 100%);
+      color: #161210;
+      font-size: 24px;
+      font-weight: 900;
+      box-shadow: 0 14px 28px rgba(212,176,113,0.22);
+    }
+
+    .share-hero-title {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      color: var(--gold-soft);
+    }
+
+    .share-hero-text {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    .share-status-inline {
+      display: none;
+      font-size: 12px;
+      line-height: 1.5;
+      color: rgba(240,223,178,0.86);
+      text-align: center;
+    }
+
+    .share-status-inline.active {
+      display: block;
+    }
+
+    .is-auto-share .mobile-card {
+      display: none;
+    }
+
+    .is-auto-share .share-hero {
+      display: grid;
     }
 
     .resume-item::before {
@@ -443,8 +511,8 @@
       body { padding: 10px; }
       .viewport {
         min-height: calc(100vh - 20px);
-        overflow: visible;
-        padding: 18px 10px 18px;
+        overflow: hidden;
+        padding: 18px 10px 20px;
       }
       html, body { overflow-x: hidden; overflow-y: auto; }
       .header h1 { font-size: 22px; }
@@ -453,13 +521,14 @@
         gap: 8px;
         padding: 8px 12px;
       }
-      .mobile-card { width: min(100%, 320px); }
+      .mobile-card,
+      .share-hero { width: min(100%, 360px); }
       .hero {
-        width: calc(100% - 104px);
+        width: calc(100% - 108px);
         margin-top: 10px;
       }
       .action-row { grid-template-columns: 1fr 1fr; gap: 8px; }
-      .btn { min-height: 34px; font-size: 11px; }
+      .btn { min-height: 36px; font-size: 11px; }
       .info-item { font-size: 14px; line-height: 1.4; }
       .resume-item { font-size: 13px; }
     }
@@ -482,6 +551,12 @@
       <span>設計</span>
       <span class="dot">●</span>
       <span>施工</span>
+    </section>
+
+    <section class="share-hero" id="share-hero" aria-live="polite">
+      <div class="share-badge">↗</div>
+      <div class="share-hero-title" id="share-hero-title">正在開啟好友分享</div>
+      <div class="share-hero-text" id="share-hero-text">請稍候，系統會直接帶你進入 LINE 的好友選取視窗。</div>
     </section>
 
     <section class="stage">
@@ -529,6 +604,7 @@
 
           <div class="share-row">
             <button class="btn btn-primary" id="share-card-btn" type="button">分享好友</button>
+            <div class="share-status-inline" id="share-status-inline"></div>
             <div id="share-debug-text" style="display:none;margin-top:6px;font-size:11px;line-height:1.35;color:rgba(240,223,178,0.72);text-align:center;"></div>
             <details id="share-diagnostics" style="margin-top:6px;display:none;color:rgba(240,223,178,0.78);font-size:10px;line-height:1.4;">
               <summary style="cursor:pointer;user-select:none;">分享診斷資訊</summary>
@@ -564,9 +640,30 @@
       const lineLink = document.getElementById('line-link');
       const websiteLink = document.getElementById('website-link');
       const shareBtn = document.getElementById('share-card-btn');
+      const shareHero = document.getElementById('share-hero');
+      const shareHeroTitle = document.getElementById('share-hero-title');
+      const shareHeroText = document.getElementById('share-hero-text');
+      const shareStatusInline = document.getElementById('share-status-inline');
       const shareDebugText = document.getElementById('share-debug-text');
       const shareDiagnostics = document.getElementById('share-diagnostics');
       const shareDiagnosticsPre = document.getElementById('share-diagnostics-pre');
+
+      function setAutoShareMode(active) {
+        document.body.classList.toggle('is-auto-share', Boolean(active));
+        if (shareHero) shareHero.classList.toggle('active', Boolean(active));
+      }
+
+      function setShareHero(title = '', text = '') {
+        if (shareHeroTitle && title) shareHeroTitle.textContent = title;
+        if (shareHeroText && text) shareHeroText.textContent = text;
+      }
+
+      function setShareInlineStatus(message = '') {
+        if (!shareStatusInline) return;
+        const text = String(message || '').trim();
+        shareStatusInline.textContent = text;
+        shareStatusInline.classList.toggle('active', Boolean(text));
+      }
 
       if (cfg.lineUrl) lineLink.href = cfg.lineUrl;
       if (cfg.websiteUrl) websiteLink.href = cfg.websiteUrl;
@@ -644,6 +741,11 @@
       async function runShare({ auto = false } = {}) {
         try {
           setShareDebug('');
+          setShareInlineStatus(auto ? '正在幫你打開 LINE 好友選取視窗…' : '正在開啟 LINE 好友選取視窗…');
+          if (auto) {
+            setAutoShareMode(true);
+            setShareHero('正在開啟好友分享', '請稍候，系統會直接帶你進入 LINE 的好友選取視窗。');
+          }
           setShareState({
             disabled: true,
             label: '開啟好友選取中…'
@@ -681,13 +783,22 @@
               disabled: false,
               label: '再次分享好友'
             });
+            setShareInlineStatus('已送出分享。');
             setShareDebug('已送出分享。');
+            if (auto) {
+              setShareHero('已送出分享', '名片已送出；即將關閉這個分享頁面。');
+            }
           } else {
             setShareState({
               disabled: false,
               label: '分享好友'
             });
+            setShareInlineStatus('你已取消分享。');
             setShareDebug('你已取消分享。');
+            if (auto) {
+              setAutoShareMode(false);
+              setShareHero('已取消分享', '你已取消分享；已回到完整名片頁。');
+            }
           }
 
           if (auto && typeof liff.closeWindow === 'function' && liff.isInClient()) {
@@ -710,17 +821,29 @@
             disabled: false,
             label: '分享失敗，點此重試'
           });
+          setShareInlineStatus(`分享失敗：${summary}`);
           setShareDebug(`錯誤：${summary}`);
+          if (auto) {
+            setAutoShareMode(false);
+            setShareHero('分享失敗', '自動分享沒有成功，你可以直接在完整名片頁重新點一次分享好友。');
+          }
         }
       }
 
       setShareDebug('');
+      setShareInlineStatus('');
       setDiagnostics({
         stage: 'boot',
         href: window.location.href,
         userAgent: navigator.userAgent,
         lineVersion: typeof liff.getLineVersion === 'function' ? liff.getLineVersion() : null
       });
+      if (shouldAutoShare) {
+        setAutoShareMode(true);
+        setShareHero('正在準備分享', '請稍候，系統正在確認 LINE 分享環境。');
+      } else {
+        setAutoShareMode(false);
+      }
       setShareState({
         disabled: true,
         label: '請在 LINE 內開啟'
@@ -754,6 +877,7 @@
         }
 
         if (!liff.isInClient()) {
+          if (shouldAutoShare) setAutoShareMode(false);
           setShareState({
             disabled: true,
             label: '請在 LINE 內開啟'
@@ -762,6 +886,7 @@
         }
 
         if (typeof liff.isApiAvailable === 'function' && !liff.isApiAvailable('shareTargetPicker')) {
+          if (shouldAutoShare) setAutoShareMode(false);
           setShareState({
             disabled: true,
             label: '此 LINE 環境不支援分享'
@@ -771,6 +896,7 @@
         }
 
         if (typeof liff.shareTargetPicker !== 'function') {
+          if (shouldAutoShare) setAutoShareMode(false);
           setShareState({
             disabled: true,
             label: '目前 LINE 版本不支援分享'
@@ -782,6 +908,9 @@
           disabled: false,
           label: '分享好友'
         });
+        if (!shouldAutoShare) {
+          setShareInlineStatus('');
+        }
 
         shareBtn.addEventListener('click', () => runShare());
 
@@ -790,6 +919,10 @@
         }
       } catch (error) {
         console.error('LIFF init failed:', error);
+        if (shouldAutoShare) {
+          setAutoShareMode(false);
+          setShareHero('分享環境初始化失敗', '目前無法直接開啟好友分享，你可以先回到完整名片頁後再試一次。');
+        }
         setShareState({
           disabled: true,
           label: 'LIFF 初始化失敗，暫時無法分享'
