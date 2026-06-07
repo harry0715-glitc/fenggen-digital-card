@@ -520,6 +520,11 @@
 
       function setDiagnostics(data) {
         if (!shareDiagnostics || !shareDiagnosticsPre) return;
+        if (!cfg.shareDebugMode) {
+          shareDiagnostics.style.display = 'none';
+          shareDiagnosticsPre.textContent = '';
+          return;
+        }
         if (!data) {
           shareDiagnostics.style.display = 'none';
           shareDiagnosticsPre.textContent = '';
