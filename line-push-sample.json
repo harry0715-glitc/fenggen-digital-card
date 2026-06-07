@@ -1,0 +1,196 @@
+{
+  "to": "YOUR_LINE_USER_ID",
+  "messages": [
+    {
+      "type": "flex",
+      "altText": "楓根室內裝修設計有限公司｜數位名片",
+      "contents": {
+        "type": "bubble",
+        "size": "mega",
+        "styles": {
+          "body": {
+            "backgroundColor": "#151313",
+            "separator": false
+          },
+          "footer": {
+            "backgroundColor": "#151313",
+            "separator": false
+          }
+        },
+        "hero": {
+          "type": "image",
+          "url": "https://harry0715-glitc.github.io/fenggen-digital-card/assets/portrait.jpg",
+          "size": "full",
+          "aspectRatio": "4:3",
+          "aspectMode": "cover",
+          "backgroundColor": "#0F0F10",
+          "action": {
+            "type": "uri",
+            "label": "查看名片頁",
+            "uri": "https://liff.line.me/2010316548-ci9nYsou"
+          }
+        },
+        "body": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "md",
+          "paddingAll": "18px",
+          "contents": [
+            {
+              "type": "text",
+              "text": "CHIEF EXECUTIVE OFFICER",
+              "size": "xs",
+              "color": "#D4B071",
+              "weight": "bold",
+              "letterSpacing": "0.18em"
+            },
+            {
+              "type": "text",
+              "text": "林宗翰",
+              "size": "xxl",
+              "weight": "bold",
+              "color": "#F0DFB2"
+            },
+            {
+              "type": "text",
+              "text": "Lin Tsung Han",
+              "size": "sm",
+              "color": "#CDBB93",
+              "margin": "sm"
+            },
+            {
+              "type": "separator",
+              "margin": "md",
+              "color": "#3A2D1A"
+            },
+            {
+              "type": "image",
+              "url": "https://harry0715-glitc.github.io/fenggen-digital-card/assets/logo-black-gold.png",
+              "size": "full",
+              "aspectMode": "fit",
+              "aspectRatio": "4:1",
+              "margin": "md",
+              "gravity": "center"
+            },
+            {
+              "type": "box",
+              "layout": "vertical",
+              "spacing": "sm",
+              "margin": "lg",
+              "contents": [
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "地址",
+                      "color": "#D4B071",
+                      "size": "sm",
+                      "flex": 2,
+                      "weight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "text": "高雄市楠梓區清成街 31 號",
+                      "wrap": true,
+                      "color": "#F6ECD8",
+                      "size": "sm",
+                      "flex": 5
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "Email",
+                      "color": "#D4B071",
+                      "size": "sm",
+                      "flex": 2,
+                      "weight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "text": "fenggen.iris@msa.hinet.net",
+                      "wrap": true,
+                      "color": "#F6ECD8",
+                      "size": "sm",
+                      "flex": 5
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "layout": "baseline",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "電話",
+                      "color": "#D4B071",
+                      "size": "sm",
+                      "flex": 2,
+                      "weight": "bold"
+                    },
+                    {
+                      "type": "text",
+                      "text": "07-3553026 #18 ／ 0963-620715",
+                      "wrap": true,
+                      "color": "#F6ECD8",
+                      "size": "sm",
+                      "flex": 5
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "footer": {
+          "type": "box",
+          "layout": "vertical",
+          "spacing": "sm",
+          "paddingAll": "18px",
+          "contents": [
+            {
+              "type": "button",
+              "style": "primary",
+              "height": "sm",
+              "color": "#D4B071",
+              "action": {
+                "type": "uri",
+                "label": "加 LINE 聯繫",
+                "uri": "https://line.me/ti/p/k7EfqeX8x3"
+              }
+            },
+            {
+              "type": "button",
+              "style": "secondary",
+              "height": "sm",
+              "color": "#8F6A35",
+              "action": {
+                "type": "uri",
+                "label": "查看完整名片",
+                "uri": "https://liff.line.me/2010316548-ci9nYsou"
+              }
+            },
+            {
+              "type": "text",
+              "text": "可改成導向官網、LINE OA、表單或作品集頁面",
+              "wrap": true,
+              "size": "xs",
+              "color": "#9D8A65",
+              "margin": "md",
+              "align": "center"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
