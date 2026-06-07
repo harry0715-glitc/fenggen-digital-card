@@ -210,6 +210,22 @@
       margin-top: 2px;
     }
 
+    .share-row {
+      display: grid;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .share-hint {
+      margin: 0;
+      font-size: 11px;
+      line-height: 1.45;
+      color: rgba(246,236,216,0.58);
+      text-align: center;
+      letter-spacing: 0.04em;
+      min-height: 16px;
+    }
+
     .btn {
       position: relative;
       overflow: hidden;
@@ -292,6 +308,34 @@
         0 12px 24px rgba(0,0,0,0.22),
         inset 0 1px 0 rgba(248,232,196,0.12),
         inset 0 0 0 1px rgba(212,176,113,0.1);
+    }
+
+    .btn-share {
+      background: linear-gradient(180deg, rgba(32,28,26,0.98) 0%, rgba(18,15,14,1) 100%);
+      color: #f0dfb2;
+      border: 1px solid rgba(212,176,113,0.34);
+      box-shadow:
+        0 12px 24px rgba(0,0,0,0.22),
+        inset 0 1px 0 rgba(255,244,224,0.12),
+        inset 0 0 0 1px rgba(212,176,113,0.08);
+    }
+
+    .btn-share:hover {
+      border-color: rgba(240,223,178,0.46);
+      box-shadow:
+        0 14px 28px rgba(0,0,0,0.26),
+        inset 0 1px 0 rgba(255,244,224,0.18),
+        inset 0 0 0 1px rgba(212,176,113,0.12);
+    }
+
+    .btn-share[disabled] {
+      opacity: 0.62;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-share[disabled]:hover {
+      transform: none;
     }
 
     .card-footer {
@@ -383,6 +427,11 @@
             <a class="btn btn-primary" id="line-link" href="https://line.me/ti/p/k7EfqeX8x3" target="_blank" rel="noreferrer">加 LINE 聯繫</a>
             <a class="btn btn-secondary" id="website-link" href="http://www.fenggen.com.tw/" target="_blank" rel="noreferrer">官方網站</a>
           </div>
+
+          <div class="share-row">
+            <button class="btn btn-share" id="share-card-btn" type="button">分享名片到 LINE</button>
+            <p class="share-hint" id="share-hint">請在 LINE 內開啟後，即可直接分享這張名片卡。</p>
+          </div>
         </div>
 
         <div class="card-footer">
@@ -401,23 +450,110 @@
       liffId: "2010316548-ci9nYsou",
       lineUrl: "https://line.me/ti/p/k7EfqeX8x3",
       websiteUrl: "http://www.fenggen.com.tw/",
-      shareTargetUrl: window.location.href
+      shareTargetUrl: window.location.href,
+      shareMessageUrl: new URL('line-flex-message.json', window.location.href).toString()
     };
 
     (async function initCard() {
       const cfg = window.CARD_CONFIG;
       const lineLink = document.getElementById('line-link');
       const websiteLink = document.getElementById('website-link');
+      const shareBtn = document.getElementById('share-card-btn');
+      const shareHint = document.getElementById('share-hint');
 
       if (cfg.lineUrl) lineLink.href = cfg.lineUrl;
       if (cfg.websiteUrl) websiteLink.href = cfg.websiteUrl;
 
-      if (!cfg.liffId) return;
+      async function loadShareMessage() {
+        const response = await fetch(cfg.shareMessageUrl, { cache: 'no-store' });
+        if (!response.ok) throw new Error('Flex message JSON 載入失敗');
+        return response.json();
+      }
+
+      function setShareState({ disabled, label, hint }) {
+        shareBtn.disabled = disabled;
+        if (label) shareBtn.textContent = label;
+        if (hint) shareHint.textContent = hint;
+      }
+
+      setShareState({
+        disabled: true,
+        label: '分享名片到 LINE',
+        hint: '請在 LINE 內開啟後，即可直接分享這張名片卡。'
+      });
+
+      if (!cfg.liffId) {
+        setShareState({
+          disabled: true,
+          hint: '尚未設定 LIFF ID，暫時無法使用 LINE 內分享。'
+        });
+        return;
+      }
 
       try {
         await liff.init({ liffId: cfg.liffId });
+
+        if (!liff.isInClient()) {
+          setShareState({
+            disabled: true,
+            hint: '目前不是在 LINE 內開啟；請改用 LINE 開啟此名片後再分享。'
+          });
+          return;
+        }
+
+        if (typeof liff.shareTargetPicker !== 'function') {
+          setShareState({
+            disabled: true,
+            hint: '目前 LINE 版本不支援分享名片功能。'
+          });
+          return;
+        }
+
+        setShareState({
+          disabled: false,
+          label: '分享名片到 LINE',
+          hint: '可直接選擇朋友或群組，送出名片卡片。'
+        });
+
+        shareBtn.addEventListener('click', async () => {
+          try {
+            setShareState({
+              disabled: true,
+              label: '準備分享中…',
+              hint: '正在建立要分享的名片卡片。'
+            });
+
+            const flexMessage = await loadShareMessage();
+            const result = await liff.shareTargetPicker([flexMessage]);
+
+            if (result) {
+              setShareState({
+                disabled: false,
+                label: '再次分享名片',
+                hint: '已開啟分享流程；你可以再分享一次給其他人。'
+              });
+            } else {
+              setShareState({
+                disabled: false,
+                label: '分享名片到 LINE',
+                hint: '你已取消分享；可再次點擊重新選擇對象。'
+              });
+            }
+          } catch (error) {
+            console.error('LIFF share failed:', error);
+            setShareState({
+              disabled: false,
+              label: '重新分享名片',
+              hint: '分享失敗，請稍後再試，或確認目前是從 LINE 內開啟。'
+            });
+          }
+        });
       } catch (error) {
         console.error('LIFF init failed:', error);
+        setShareState({
+          disabled: true,
+          hint: 'LIFF 初始化失敗，暫時無法使用分享功能。'
+        });
       }
     })();
   </script>
