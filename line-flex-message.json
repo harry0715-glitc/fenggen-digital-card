@@ -24,7 +24,7 @@
       "action": {
         "type": "uri",
         "label": "查看名片頁",
-        "uri": "https://harry0715-glitc.github.io/fenggen-digital-card/"
+        "uri": "https://liff.line.me/2010316548-ci9nYsou"
       }
     },
     "body": {
@@ -162,7 +162,7 @@
           "action": {
             "type": "uri",
             "label": "加 LINE 聯繫",
-            "uri": "https://line.me/R/ti/p/@your-line-id"
+            "uri": "https://line.me/ti/p/k7EfqeX8x3"
           }
         },
         {
@@ -173,7 +173,7 @@
           "action": {
             "type": "uri",
             "label": "查看完整名片",
-            "uri": "https://harry0715-glitc.github.io/fenggen-digital-card/"
+            "uri": "https://liff.line.me/2010316548-ci9nYsou"
           }
         },
         {
